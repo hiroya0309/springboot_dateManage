@@ -30,6 +30,7 @@ public class Employees {
 	@Column(name="formula")
     private String formula;
 	
+
     public Long getId() {
         return this.id;
     }
@@ -71,7 +72,6 @@ public class Employees {
     }
     public void setFormula(String formula) {
         this.formula = formula;
-    }
-    
-    
+    }  
+
 }
