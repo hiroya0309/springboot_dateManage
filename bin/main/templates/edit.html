@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>日付管理アプリ 編集画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  </head>
+  <body>
+    <div class="col-xs-6 col-xs-offset-3">
+     <div class="row">
+      <div class="panel panel-default" style="margin-top:50px;">
+      	<div class="panel-heading"><h4>編集</h4></div>
+      	<div class="panel-body">
+	      <form th:action="@{/search/{id}(id=*{id})}" th:method="put" th:object="${date}">
+	        <div class="form-group">
+	          <label class="control-label">日付ID</label>
+	          <input class="form-control" type="text" th:field="*{dateid}" />
+	        </div>
+	        <div class="form-group">
+	          <label class="control-label">日付名</label>
+	          <input class="form-control" type="text" th:field="*{datename}" />
+	        </div>
+	        <div class="form-group">
+	          <label class="control-label">年</label>
+	          <input class="form-control" type="number" th:field="*{year}" />
+	        </div>
+	        <div class="form-group">
+	          <label class="control-label">月</label>
+	          <input class="form-control" type="number" th:field="*{month}" />
+	        </div>
+	        <div class="form-group">
+	          <label class="control-label">日</label>
+	          <input class="form-control" type="number" th:field="*{day}" />
+	        </div>
+	        <div class="form-group">
+	          <label class="control-label">計算式（年/月/日）</label>
+	          <input class="form-control" type="text" th:field="*{formula}" />
+	        </div>
+	        <button class="btn btn-warning" type="submit">更新</button> 
+	      </form>
+	      </div>
+	      <div class="pull-right">
+	       <a class="btn btn-link" href="/search">検索画面にもどる</a>
+	      </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

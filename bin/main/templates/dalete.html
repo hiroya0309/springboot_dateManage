@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>日付管理アプリ 削除画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  </head>
+  <body>
+    <div class="col-xs-6 col-xs-offset-3">
+     <div class="row">
+      <div class="panel panel-default" style="margin-top:50px;">
+      	<div class="panel-heading"><h4>削除</h4></div>
+      	<div class="panel-body">
+	      <div th:object="${date}">
+        <div>
+          <label>日付ID</label>
+          <p th:text="*{dateid}"></p><hr>
+        </div>
+        <div>
+          <label>日付名</label>
+          <p th:text="*{datename}"></p><hr>
+        </div>
+        <div>
+          <label>年</label>
+          <p th:text="*{year}"></p><hr>
+        </div>
+        <div>
+          <label>月</label>
+          <p th:text="*{month}"></p><hr>
+        </div>
+        <div>
+          <label>日</label>
+          <p th:text="*{day}"></p><hr>
+        </div>
+        <div>
+          <label>計算式（年/月/日）</label>
+          <p th:text="*{formula}"></p><hr>
+        </div>
+	        <form th:action="@{/search/{id}(id=*{id})}" th:method="delete">
+                <input class="btn btn-danger" type="submit" value="削除" />
+            </form> 
+	      </div>
+	      </div>
+	      <div class="pull-right">
+	       <a class="btn btn-link" href="/search">検索画面にもどる</a>
+	      </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
