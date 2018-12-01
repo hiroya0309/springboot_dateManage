@@ -1,29 +1,34 @@
 package com.example.demo;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-public class DateForm {
-
+@Entity
+@Table(name="date")
+public class DateManage {
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-
+	@Column(name="dateid")
     private String dateid;
-
+	@Column(name="datename")
     private String datename;
-
+	@Column(name="year")
 	private Long year;
-
+	@Column(name="month")
 	private Long month;
-
+	@Column(name="day")
 	private Long day;
-
+	@Column(name="formula")
     private String formula;
 	
-    private LocalDate dates;
-   
 
-    
     public Long getId() {
         return this.id;
     }
@@ -65,16 +70,5 @@ public class DateForm {
     }
     public void setFormula(String formula) {
         this.formula = formula;
-    } 
-	
-    public LocalDate getDates() {
-        return this.dates;
-    }
-    
-    public void setDates(String dateString1) {
-    	DateTimeFormatter localDate = DateTimeFormatter.ISO_DATE;
-		LocalDate date = LocalDate.parse(dateString1, localDate);
-		this.dates = date;			
-    }
+    }	
 }
-    

@@ -10,45 +10,42 @@
   <body>
 	  <div class="container">
 	  	<div class="row">
-	  	
-	    		<div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">  
-	    			<div class="form-group">
-	       				<p>計算の基準となる日付を入力してください。</p>
-	       				<form  th:action="@{/search}" th:method="post">
-	       				 <input type="date" class="form-control" name="dates"><br>
-	       				 <input type="submit" class="btn btn-primary" name="index" value="計算"/>
-	       				 </form>
-	      			</div>
-	      		</div>
-	      		
-	      		<div class="container">    
-				    <table class="table" >
-					    <thead>
-						    <tr>
-						        <td>NO</td>
-						        <td>日付ID</td>
-						        <td>日付名</td>
-						        <td>計算結果</td>
-						        <td>計算式（年/月/日）</td>
-						    </tr>
-				      	</thead>
-				      	<tbody>     
-					      	<tr th:each="date:${list}">
-						        <td th:text="${date.id}"></td>
-						        <td th:text="${date.dateid}"></td>
-						        <td th:text="${date.datename}"></td>
-						        <td th:text="${dateForm.dates}"></td>
-								<td th:text="${date.formula}"></td>
-								<td>
-									<a class="btn btn-warning" th:href="@{/search/{id}/edit(id=${date.id})}">編集</a>
-									<a class="btn btn-danger" th:href="@{/search/{id}(id=${date.id})}">削除</a>	
-								</td>	       
-					      	</tr>
-				      </tbody>
-				    </table>
-				    <a class="btn btn-primary" href="/search/new">新規作成</a>
-			    </div>
-			        	
+   		<div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">  
+   			<div class="form-group">
+      				<p>計算の基準となる日付を入力してください。</p>
+      				<form  th:action="@{/search}" th:method="post">
+      				 <input type="date" class="form-control" name="dates"><br>
+      				 <input type="submit" class="btn btn-primary" name="search" value="計算"/>
+      				 </form>
+     			</div>
+     		</div>	
+      		<div class="container">    
+			    <table class="table" >
+				    <thead>
+					    <tr>
+					        <td>NO</td>
+					        <td>日付ID</td>
+					        <td>日付名</td>
+					        <td>計算結果</td>
+					        <td>計算式（年/月/日）</td>
+					    </tr>
+			      	</thead>
+			      	<tbody>     
+				      	<tr th:each="date:${list}">
+					        <td th:text="${date.id}"></td>
+					        <td th:text="${date.dateid}"></td>
+					        <td th:text="${date.datename}"></td>
+					        <td th:text="${dateForm.dates}"></td>
+							<td th:text="${date.formula}"></td>
+							<td>
+								<a class="btn btn-warning" th:href="@{/search/{id}/edit(id=${date.id})}">編集</a>
+								<a class="btn btn-danger" th:href="@{/search/{id}(id=${date.id})}">削除</a>	
+							</td>	       
+				      	</tr>
+			      </tbody>
+			    </table>
+			    <a class="btn btn-primary" href="/search/new">新規作成</a>
+		    </div>       	
 	    </div>
 	  </div>
   </body>
